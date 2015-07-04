@@ -1,0 +1,48 @@
+#----------------------------------------
+#  Snapshot POD input deck
+#----------------------------------------
+
+x_min = -1000.0
+x_max = 1000.0
+y_min = -1000
+y_max = 1000
+z_min = -1000.0
+z_max = 1000.0
+
+#temporal_correlation_type = u
+#temporal_correlation_type = v
+#temporal_correlation_type = w
+#temporal_correlation_type = p
+temporal_correlation_type = ke
+#temporal_correlation_type = q
+
+normalisation = none
+#normalisation = local
+#normalisation = global
+
+snapshot_list_filename = ./data/dN001_N06.list
+snapshot_dir = ./data/
+file_name_with_cell_volumes = ./data/cell_volumes.vtk
+
+restart = false
+#restart = ./restart
+
+two_dimensional = true
+#two_dimensional = false
+
+#test_orthogonality = true
+test_orthogonality = false
+
+#check_eigensolution = true
+check_eigensolution = false
+
+dt = 0.0095
+
+threshhold_energy = 100.0
+min_number_of_eigenvalues = 10
+max_number_of_eigenvalues = 10
+
+#----------------------------------
+# End of Deck
+#----------------------------------
+

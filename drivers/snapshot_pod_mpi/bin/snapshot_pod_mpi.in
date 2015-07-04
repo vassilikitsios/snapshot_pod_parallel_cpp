@@ -1,0 +1,44 @@
+#----------------------------------------
+#  Snapshot POD input deck
+#----------------------------------------
+
+#shear region
+x_min = -0.05
+x_max = 0.25
+y_min = -0.105
+y_max = 0.145
+z_min = -10.0
+z_max = 10.0
+
+#temporal_correlation_type = u
+#temporal_correlation_type = v
+#temporal_correlation_type = w
+temporal_correlation_type = ke
+#temporal_correlation_type = p
+#temporal_correlation_type = q	
+
+normalisation = none
+#normalisation = local
+#normalisation = global
+
+snapshot_list_filename = ../snapshots/data_files.100T.list
+snapshot_dir = ../snapshots/
+file_name_with_cell_volumes = ../snapshots/cell_volumes.vtk
+
+restart = false
+#restart = ./restart
+
+two_dimensional = true
+test_orthogonality = true
+check_eigensolution = false
+	
+dt = 0.002
+
+threshhold_energy = 99.9
+min_number_of_eigenvalues = 10
+max_number_of_eigenvalues = 20
+
+#----------------------------------
+# End of Deck
+#----------------------------------
+

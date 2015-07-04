@@ -1,0 +1,63 @@
+# Vassili Kitsios 27/02/2007
+SYSTEM_NAME = MACBOOK 
+
+# ----------------------------------------------------------------------------
+CPP = g++
+MPI_CPP = mpicxx
+
+# ----------------------------------------------------------------------------
+#CPPFLAGS = -O0 -Wall -ansi -pedantic -DDEBUG
+CPPFLAGS = -O0
+#CPPFLAGS = -O0 -Wall -ansi -Wno-deprecated
+# CPPFLAGS = -O0 -Wall -ansi -pedantic 
+#CPPFLAGS = -O2 -Wall -ansi -pedantic
+# CPPFLAGS = -O1 -Wall -ansi -pedantic
+# CPPFLAGS = -O3 -Wall -ansi -pedantic
+
+# ----------------------------------------------------------------------------
+# ar - create, modify, and extract from archives
+# r = insert file into archive
+# c = create archive if necessary
+# v = verbose 
+AR = ar rcv
+
+# ----------------------------------------------------------------------------
+# Library Locations
+
+VTK_LIBS_DIR = /usr/local/libs/vtk-5.4
+VTK_INC_DIR = /usr/local/include/vtk-5.4
+VTK_LIBS = -L$(VTK_LIBS_DIR) -lvtkCommon -lvtkDICOMParser -lvtkFiltering -lvtkGenericFiltering -lvtkGraphics -lvtkHybrid -lvtkIO -lvtkImaging -lvtkNetCDF -lvtkRendering -lvtkVolumeRendering -lvtkWidgets -lvtkexoIIc -lvtkexpat -lvtkfreetype -lvtkftgl -lvtkjpeg -lvtkpng -lvtksys -lvtktiff -lvtkzlib
+VTK_INC = -I$(VTK_INC_DIR)/ -I$(VTK_INC_DIR)/Common -I$(VTK_INC_DIR)/Filtering -I$(VTK_INC_DIR)/Rendering -I$(VTK_INC_DIR)/Graphics -I$(VTK_INC_DIR)/Imaging -I$(VTK_INC_DIR)/IO -I$(VTK_INC_DIR)/VolumeRendering -I$(VTK_INC_DIR)/Hybrid -I$(VTK_INC_DIR)/Widgets -I$(VTK_INC_DIR)/Parallel -I$(VTK_INC_DIR)/GenericFiltering 
+
+FFTW_LIBS = -lfftw3
+
+CLAPACK_DIR = /usr/local
+CLAPACK_LIBS = -L$(CLAPACK_DIR)/lib -lc -lctmg -lclapack -lcblas -lF77 -lI77
+CLAPACK_INC = -I$(CLAPACK_DIR)/include
+
+MPI_DIR = /usr/local
+MPI_LIBS = -L$(MPI_DIR)/lib -lmpich
+MPI_INC = -I$(MPI_DIR)/include
+
+# ----------------------------------------------------------------------------
+# My library Locations
+
+BASE_DIR = /home/kit027/transition_codes
+INCLUDE_DIR = $(BASE_DIR)/include
+LIB_DIR = $(BASE_DIR)/lib
+
+UTILS_LIBS = -lUtils
+TECPLOT_IO_LIBS = -lTecplotIO
+TEMPORAL_IO_LIBS = -lTemporalIO
+COMPLEX_EIGENSOLVER_LIBS = -lEigenSolver
+STABILTY_LIBS = -lLocalStability
+CURVI_LIBS = -lCurvilinear
+VTKUTILS_LIBS = -lVTKUtils
+POD_LIBS = -lPODUtils
+PODROM_LIBS = -lPODRomUtils
+
+# ----------------------------------------------------------------------------
+# ranlib - generate index to archive. 
+RANLIB = ranlib
+
+# ----------------------------------------------------------------------------

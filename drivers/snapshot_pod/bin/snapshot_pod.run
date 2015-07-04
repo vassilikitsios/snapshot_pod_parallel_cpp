@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# ----------------------------------------------------------------------------
+# Some important filenames:
+PROGRAM="snapshot_pod"
+OUTPUT_FILE=${PROGRAM}".out"
+ERROR_FILE=${PROGRAM}".err"
+
+PROGRAM_BASE_DIR="/Users/vas/Documents/3Coding/4Analysis_codes/drivers/POD"
+PROGRAM_BIN_DIR=$PROGRAM_BASE_DIR/$PROGRAM"/bin"
+GNU_PLOT_FILES_DIR=$PROGRAM_BASE_DIR/$PROGRAM"/plotting"
+GNU_PLOT_ONE_EPS_FILE="plot_eps_one_file.gp"
+GNU_PLOT_SEPARATE_EPS_FILES="plot_eps_separate_files.gp"
+
+RESULTS_DIR="./results"
+IMAGES_DIR="./images"
+
+# ----------------------------------------------------------------------------
+# Organise files:
+rm -vrf $PROGRAM $OUTPUT_FILE $ERROR_FILE $RESULTS_DIR $IMAGES_DIR *~
+cp $PROGRAM_BIN_DIR/$PROGRAM .
+
+mkdir $RESULTS_DIR $IMAGES_DIR
+cp $GNU_PLOT_FILES_DIR/$GNU_PLOT_ONE_EPS_FILE $IMAGES_DIR
+cp $GNU_PLOT_FILES_DIR/$GNU_PLOT_SEPARATE_EPS_FILES $IMAGES_DIR
+
+# ----------------------------------------------------------------------------
+# Running code:
+#$PROGRAM 1>${PROGRAM}.out 2> ${PROGRAM}.err
+./$PROGRAM
+
+# ---------------------------------------------------------------------------- 
+# Generate images:
+echo "Generating images..."
+cd $IMAGES_DIR
+gnuplot $GNU_PLOT_ONE_EPS_FILE 
+gnuplot $GNU_PLOT_SEPARATE_EPS_FILES
+cd ..
+echo "done."
+echo " "
+
+# ---------------------------------------------------------------------------- 

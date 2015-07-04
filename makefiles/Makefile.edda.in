@@ -1,0 +1,53 @@
+# Vassili Kitsios 27/02/2007
+SYSTEM_NAME = edda 
+
+# ----------------------------------------------------------------------------
+# Library Locations
+MESH_IO_DIR = /home/vzgd12/mesh_io
+MESH_IO_LIBS = -L$(MESH_IO_DIR)/lib -lmesh_io
+MESH_IO_INC = -I$(MESH_IO_DIR)/include
+
+UTILS_DIR = /home/vzgd12/utils
+UTILS_LIBS = -L$(UTILS_DIR)/lib -lutils
+UTILS_INC = -I$(UTILS_DIR)/include
+
+CLAPACK_DIR = /home/vzgd12/CLAPACK
+CLAPACK_LIBS = -L$(CLAPACK_DIR) -L$(CLAPACK_DIR)/F2CLIBS -lc -lclapack -lcblas -lF77 -lI77
+CLAPACK_INC = -I$(CLAPACK_DIR) -I$(CLAPACK_DIR)/F2CLIBS
+
+MPI_DIR = /usr/local/mpichgm-1.2.6..14b-gcc33-xlf-gm-32
+MPI_LIBS = -L$(MPI_DIR)/lib -lmpich
+#MPI_INC = -I$(MPI_DIR)/include
+MPI_CPP = $(MPI_DIR)/bin/mpicxx
+
+CURVI_DIR = /Users/vas/Documents/3Coding/4Analysis_codes/conformal_mapping
+CURVI_LIBS = -L$(CURVI_DIR)/lib -lCurvilinear -lVTKUtils
+CURVI_INC = -I$(CURVI_DIR)/include
+
+# or run: compileEdda32gcc - see ~/.bash_profile 
+#MPI_CPP = mpicxx
+
+# ----------------------------------------------------------------------------
+#  CPP = /usr/local/gcc-4.1.1/bin/g++
+#CPP = $(MPI_CPP)
+CPP = g++
+
+# ----------------------------------------------------------------------------
+#CPPFLAGS = -O0 -Wall -ansi -pedantic -DDEBUG
+#CPPFLAGS = -O0 -Wall -ansi -pedantic
+CPPFLAGS = -O2 -Wall -ansi -pedantic
+#CPPFLAGS = -O1 -Wall -ansi -pedantic
+#CPPFLAGS = -O3 -Wall -ansi -pedantic
+
+# ----------------------------------------------------------------------------
+# ar - create, modify, and extract from archives
+# r = insert file into archive
+# c = create archive if necessary
+# v = verbose 
+AR = ar rcv
+
+# ----------------------------------------------------------------------------
+# ranlib - generate index to archive. 
+RANLIB = ranlib
+
+# ----------------------------------------------------------------------------

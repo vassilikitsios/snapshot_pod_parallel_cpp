@@ -1,0 +1,68 @@
+# Vassili Kitsios 27/02/2007
+SYSTEM_NAME = DELL
+
+# ----------------------------------------------------------------------------
+CPP = g++
+#MPI_CPP = mpicxx
+MPI_CPP = g++
+
+# ----------------------------------------------------------------------------
+#CPPFLAGS = -O0 -DDEBUG
+#CPPFLAGS = -O0 -Wno-deprecated
+CPPFLAGS = -O0 -Wall -Wno-deprecated
+#CPPFLAGS = -O0 -Wall
+#CPPFLAGS = -O0 -Wall -pedantic -fbounds-check
+#CPPFLAGS = -O1 -Wall -pedantic -fbounds-check
+#CPPFLAGS = -O2 -Wall -pedantic -fbounds-check
+#CPPFLAGS = -O3 -Wall -pedantic -fbounds-check
+
+# ----------------------------------------------------------------------------
+# ar - create, modify, and extract from archives
+# r = insert file into archive
+# c = create archive if necessary
+# v = verbose 
+AR = ar rcv
+
+# ----------------------------------------------------------------------------
+# Library Locations
+
+VTK_LIBS_DIR = /usr/local/lib/vtk-5.6
+VTK_INC_DIR = /usr/local/include/vtk-5.6
+#VTK_LIBS = -L$(VTK_LIBS_DIR) -lvtkCommon -lvtkDICOMParser -lvtkFiltering -lvtkGenericFiltering -lvtkGraphics -lvtkHybrid -lvtkIO -lvtkImaging -lvtkNetCDF -lvtkRendering -lvtkVolumeRendering -lvtkWidgets -lvtkexoIIc -lvtkexpat -lvtkfreetype -lvtkftgl -lvtkjpeg -lvtkpng -lvtksys -lvtktiff -lvtkzlib
+VTK_LIBS = -L$(VTK_LIBS_DIR) -lvtkCommon -lvtkDICOMParser -lvtkFiltering -lvtkGenericFiltering -lvtkGraphics -lvtkIO -lvtkImaging -lvtkNetCDF -lvtkexoIIc -lvtkexpat -lvtkfreetype -lvtkjpeg -lvtkpng -lvtksys -lvtktiff -lvtkzlib
+VTK_INC = -I$(VTK_INC_DIR)/ -I$(VTK_INC_DIR)/Common -I$(VTK_INC_DIR)/Filtering -I$(VTK_INC_DIR)/Graphics -I$(VTK_INC_DIR)/Imaging -I$(VTK_INC_DIR)/IO -I$(VTK_INC_DIR)/Parallel -I$(VTK_INC_DIR)/GenericFiltering 
+
+FFTW_LIBS = -lfftw3 -lm
+
+CLAPACK_DIR = /home/kit027/Documents/2code/clapack
+#CLAPACK_LIBS = -L$(CLAPACK_DIR) -lc -lctmg -lclapack -lcblas 
+CLAPACK_LIBS = -L$(CLAPACK_DIR) -L$(CLAPACK_DIR)/F2CLIBS/ -lc -lctmg -lclapack -lcblas -lf2c
+CLAPACK_INC = -I$(CLAPACK_DIR)/INCLUDE
+
+#MPI_LIBS = -L/usr/lib/mpich2 -lmpich
+#MPI_INC = -I/usr/include/mpich2
+MPI_LIBS = -L/usr/lib -lmpich
+MPI_INC = -I/usr/include/mpi
+
+# ----------------------------------------------------------------------------
+# My library Locations
+
+BASE_DIR = ../..
+INCLUDE_DIR = $(BASE_DIR)/include
+LIB_DIR = $(BASE_DIR)/lib
+
+UTILS_LIBS = -lUtils
+TECPLOT_IO_LIBS = -lTecplotIO
+TEMPORAL_IO_LIBS = -lTemporalIO
+COMPLEX_EIGENSOLVER_LIBS = -lEigenSolver
+STABILTY_LIBS = -lLocalStability
+CURVI_LIBS = -lCurvilinear
+VTKUTILS_LIBS = -lVTKUtils
+POD_LIBS = -lPodUtils
+PODROM_LIBS = -lPodRomUtils
+
+# ----------------------------------------------------------------------------
+# ranlib - generate index to archive. 
+RANLIB = ranlib
+
+# ----------------------------------------------------------------------------

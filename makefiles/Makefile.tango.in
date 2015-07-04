@@ -1,0 +1,55 @@
+# Vassili Kitsios 27/02/2007
+SYSTEM_NAME = tango 
+
+# ----------------------------------------------------------------------------
+CPP = /usr/local/gcc/4.2.1/bin/g++ 
+
+# ----------------------------------------------------------------------------
+# CPPFLAGS = -O0 -Wall -ansi -pedantic -DDEBUG
+# CPPFLAGS = -O2 -Wall -ansi -pedantic
+# CPPFLAGS = -O1 -Wall -ansi -pedantic
+#CPPFLAGS = -O3 -Wall -ansi -pedantic
+#CPPFLAGS = -O2 -lstdc++
+CPPFLAGS = -O0 -Wno-deprecated
+
+# ----------------------------------------------------------------------------
+# ar - create, modify, and extract from archives
+# r = insert file into archive
+# c = create archive if necessary
+# v = verbose 
+AR = ar rcv
+
+# ----------------------------------------------------------------------------
+# Library Locations
+UTILS_DIR = /home/vzgd12/local/utils
+UTILS_LIBS = -L$(UTILS_DIR)/lib/ -lUtils
+UTILS_INC = -I$(UTILS_DIR)/include/
+
+VTK_DIR = /home/vzgd12/lib/VTK
+VTK_LIBS = -L$(VTK_DIR)/bin -lvtkCommon -lvtkDICOMParser -lvtkFiltering -lvtkGenericFiltering -lvtkGraphics -lvtkHybrid -lvtkIO -lvtkImaging -lvtkNetCDF -lvtkRendering -lvtkVolumeRendering -lvtkWidgets -lvtkexoIIc -lvtkexpat -lvtkfreetype -lvtkftgl -lvtkjpeg -lvtkpng -lvtksys -lvtktiff -lvtkzlib
+VTK_INC = -I$(VTK_DIR)/ -I$(VTK_DIR)/Common -I$(VTK_DIR)/Filtering -I$(VTK_DIR)/GUISupport -I$(VTK_DIR)/GenericFiltering -I$(VTK_DIR)/Graphics -I$(VTK_DIR)/Hybrid -I$(VTK_DIR)/IO -I$(VTK_DIR)/Imaging -I$(VTK_DIR)/Parallel -I$(VTK_DIR)/Rendering -I$(VTK_DIR)/Testing -I$(VTK_DIR)/Utilities -I$(VTK_DIR)/VolumeRendering  -I$(VTK_DIR)/Widgets -I$(VTK_DIR)/Wrapping -I$(VTK_DIR)/bin
+
+CLAPACK_DIR = /home/vzgd12/lib/clapack
+CLAPACK_LIBS = -L$(CLAPACK_DIR) -L$(CLAPACK_DIR)/F2CLIBS -lc -lclapack -lcblas -lF77 -lI77
+CLAPACK_INC = -I$(CLAPACK_DIR) -I$(CLAPACK_DIR)/F2CLIBS
+
+CURVI_DIR = /Users/vas/Documents/3Coding/4Analysis_codes/conformal_mapping
+CURVI_LIBS = -L$(CURVI_DIR)/lib  -lCurvilinear -lVTKUtils
+CURVI_INC = -I$(CURVI_DIR)/include
+
+# need to run: module load openmpi/1.2.4-gcc
+MPI_CPP = mpicxx 
+
+MPI_DIR = /usr/local/openmpi/1.2.4-gcc
+MPI_LIBS = -L$(MPI_DIR)/lib/ -lmpi -lmpi_cxx
+MPI_INC = -I$(MPI_DIR)/include/
+MPI_CPP = $(MPI_DIR)/bin/mpic++
+
+# or need to run: module load openmpi/1.2.4-gcc
+#MPI_CPP = mpicxx 
+
+# ----------------------------------------------------------------------------
+# ranlib - generate index to archive. 
+RANLIB = ranlib
+
+# ----------------------------------------------------------------------------

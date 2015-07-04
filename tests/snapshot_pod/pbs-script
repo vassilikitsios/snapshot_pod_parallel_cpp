@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# ----------------------------------------
+# Assign pbs settings
+
+#PBS -S /bin/bash
+#PBS -N JdN001
+#PBS -l nodes=1
+#PBS -l walltime=24:00:00
+
+# PBS -m ae
+
+# ----------------------------------------
+# set important file names
+
+PROGRAM="snapshot_pod"
+OUTPUT_FILE=${PROGRAM}".out"
+ERROR_FILE=${PROGRAM}".err"
+RESULTS_DIR="./results"
+
+# ----------------------------------------
+# prepare working directory
+
+cd $PBS_O_WORKDIR
+rm -vrf $PROGRAM $OUTPUT_FILE $ERROR_FILE $RESULTS_DIR J* *~
+mkdir $RESULTS_DIR
+cp ./snapshot_pod_parallel_cpp/tests/snapshot_pod_mpi/bin/$PROGRAM .
+# ----------------------------------------
+# run code
+
+source $HOME/.bash_profile
+./$PROGRAM 1>$OUTPUT_FILE 2>$ERROR_FILE
+
+# -------------- EOF ---------------------
+

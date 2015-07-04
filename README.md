@@ -20,9 +20,9 @@ https://minerva-access.unimelb.edu.au/handle/11343/35705
 ----------------------------------------------------------------------
 
 Prior to compliling this code the following libraries are required on the system:
-	clapack		http://www.netlib.org/clapack/
-	VTK		http://www.vtk.org
-	MPICH		http://www.mcs.anl.gov/research/projects/mpi/mpich1-old/
+clapack		http://www.netlib.org/clapack/
+VTK		http://www.vtk.org
+MPICH		http://www.mcs.anl.gov/research/projects/mpi/mpich1-old/
 
 Once these components are installed see "./Makefile" for details on how to compile the present code.
 

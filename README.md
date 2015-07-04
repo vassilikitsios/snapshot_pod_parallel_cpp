@@ -8,11 +8,11 @@ This C++ code has been written to perform snapshot POD analysis in serial and in
 
 This README file contains installation instructions and an overview of the code. If you are to use this code in your own projects please cite the following documents:
 
-	Kitsios, V., Cordier, L., Bonnet, J.-P., Ooi, A. & Soria, J., 2011, On the coherent structures and stability properties of a leading edge separated aerofoil with turbulent recirculation, Journal of Fluid Mechanics, Vol. 683, pp 395-416.
-	http://journals.cambridge.org/action/displayAbstract?fromPage=online&aid=8378263
+Kitsios, V., Cordier, L., Bonnet, J.-P., Ooi, A. & Soria, J., 2011, On the coherent structures and stability properties of a leading edge separated aerofoil with turbulent recirculation, Journal of Fluid Mechanics, Vol. 683, pp 395-416.
+http://journals.cambridge.org/action/displayAbstract?fromPage=online&aid=8378263
 
-        Kitsios, V., 2010, Recovery of fluid mechanical modes in unsteady separated flows, PhD Thesis, The University of Melbourne
-        https://minerva-access.unimelb.edu.au/handle/11343/35705
+Kitsios, V., 2010, Recovery of fluid mechanical modes in unsteady separated flows, PhD Thesis, The University of Melbourne
+https://minerva-access.unimelb.edu.au/handle/11343/35705
 
 
 ----------------------------------------------------------------------
